@@ -32,6 +32,7 @@ type CmdConfig struct {
 	SidecarCmd                string
 	SidecarMountPoint         string
 	ConfigmapName             string
+	K8SDefaultGW              string
 }
 
 var (
@@ -72,6 +73,8 @@ func NewCmdConfig() (*CmdConfig, error) {
 	app.Flag("sidecarMountPoint", "Mountpoint for configmap in sidecar container").StringVar(&c.SidecarMountPoint)
 
 	app.Flag("configmapName", "Name of the configmap to attach to containers").StringVar(&c.ConfigmapName)
+
+	app.Flag("k8s-default-gw", "Explicit gateway IP to pass in container env.").StringVar(&c.K8SDefaultGW)
 
 	_, err := app.Parse(os.Args[1:])
 	if err != nil {

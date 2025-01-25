@@ -270,6 +270,10 @@ func (cfg gatewayPodMutatorCfg) GatewayPodMutator(_ context.Context, adReview *k
 						Name:  "K8S_DNS_ips",
 						Value: k8s_DNS_ips,
 					},
+					{
+						Name:  "K8S_DEFAULT_GW",
+						Value: cfg.cmdConfig.K8SDefaultGW,
+					},
 				},
 				// Resources:                corev1.ResourceRequirements{},
 				VolumeMounts: volumeMount,
@@ -345,6 +349,10 @@ func (cfg gatewayPodMutatorCfg) GatewayPodMutator(_ context.Context, adReview *k
 					{
 						Name:  "K8S_DNS_ips",
 						Value: k8s_DNS_ips,
+					},
+					{
+						Name:  "K8S_DEFAULT_GW",
+						Value: cfg.cmdConfig.K8SDefaultGW,
 					},
 				},
 				// Resources:                corev1.ResourceRequirements{},
